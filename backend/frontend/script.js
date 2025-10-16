@@ -19,7 +19,7 @@ input.addEventListener("keypress", async (e) => {
     card.classList.add("hidden");
 
     try {
-      const response = await fetch(`http://localhost:3000/lookup/${barcode}`);
+      const response = await fetch(`/lookup/${barcode}`);
       if (!response.ok) throw new Error("API error");
 
       const data = await response.json();
