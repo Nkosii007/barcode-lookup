@@ -7,16 +7,17 @@ import { fileURLToPath } from "url";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Allow frontend calls
+// Middleware
 app.use(cors());
 
 // Serve static frontend files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, "frontend")));
 
 const API_KEY = "a30ac13ab0dcea9b99490ccde6479883a9a4e5eb6400decd4d83c3c9b5b123d8";
 
+// Lookup route
 app.get("/lookup/:barcode", async (req, res) => {
   const barcode = req.params.barcode;
   try {
@@ -27,7 +28,7 @@ app.get("/lookup/:barcode", async (req, res) => {
       },
     });
 
-    if (!response.ok) throw new Error("API failed");
+    if (!response.ok) throw new Error("GO UPC API request failed");
 
     const data = await response.json();
     res.json(data.product || { error: "Product not found" });
@@ -37,9 +38,10 @@ app.get("/lookup/:barcode", async (req, res) => {
   }
 });
 
-// Serve index.html for any other route
+// Serve frontend index.html for all other routes
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Start server
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
