@@ -1,0 +1,70 @@
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: #f8f9fb;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  width: 500px;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#barcodeInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 2px solid #e3e3e3;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.card.hidden {
+  display: none;
+}
+
+#productImage {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+#status {
+  margin-top: 10px;
+  font-style: italic;
+  color: #777;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}

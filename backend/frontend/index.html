@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barcode Lookup System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📦 Barcode Lookup System</h1>
+    <input id="barcodeInput" type="text" placeholder="Scan barcode here..." autofocus>
+
+    <div id="result" class="card hidden">
+      <img id="productImage" alt="Product Image">
+      <div>
+        <h2 id="productName"></h2>
+        <p><strong>Brand:</strong> <span id="brand"></span></p>
+        <p><strong>Category:</strong> <span id="category"></span></p>
+        <p id="description"></p>
+      </div>
+    </div>
+
+    <p id="status"></p>
+
+    <h3>Scan History</h3>
+    <table id="history">
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Barcode</th>
+          <th>Product Name</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
